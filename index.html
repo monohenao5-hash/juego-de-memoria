@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memory Quest | Taller 14 - Juego de Memoria</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Fondo decorativo animado -->
+  <div class="fondo-animado" aria-hidden="true">
+    <span class="burbuja burbuja-1"></span>
+    <span class="burbuja burbuja-2"></span>
+    <span class="burbuja burbuja-3"></span>
+    <span class="burbuja burbuja-4"></span>
+    <span class="burbuja burbuja-5"></span>
+    <span class="burbuja burbuja-6"></span>
+  </div>
+
+  <main class="app">
+
+    <!-- PANTALLA INICIAL -->
+    <section id="pantalla-inicio" class="pantalla pantalla-inicio">
+      <p class="etiqueta">Programación Web Creativa II</p>
+      <h1 class="titulo">Memory <span>Quest</span></h1>
+      <p class="subtitulo">
+        Encuentra las 8 parejas de tarjetas en el menor tiempo
+        y con la menor cantidad de movimientos.
+      </p>
+
+      <div class="vista-previa" aria-hidden="true">
+        <span class="mini-tarjeta mini-1">🚀</span>
+        <span class="mini-tarjeta mini-2">🌟</span>
+        <span class="mini-tarjeta mini-3">🎮</span>
+        <span class="mini-tarjeta mini-4">🦊</span>
+      </div>
+
+      <ul class="instrucciones">
+        <li><strong>1.</strong> Haz clic en una tarjeta para girarla.</li>
+        <li><strong>2.</strong> Gira una segunda tarjeta y busca la pareja.</li>
+        <li><strong>3.</strong> Encuentra las 8 parejas para ganar.</li>
+      </ul>
+
+      <button id="btn-iniciar" class="boton boton-principal" type="button">
+        ▶ Iniciar juego
+      </button>
+    </section>
+
+    <!-- PANTALLA DE JUEGO -->
+    <section id="pantalla-juego" class="pantalla pantalla-juego oculto">
+
+      <header class="encabezado-juego">
+        <h2 class="titulo-pequeno">Memory <span>Quest</span></h2>
+
+        <div class="marcadores">
+          <div class="marcador">
+            <span class="marcador-etiqueta">👣 Movimientos</span>
+            <strong id="contador-movimientos" class="marcador-valor">0</strong>
+          </div>
+          <div class="marcador">
+            <span class="marcador-etiqueta">⏱ Tiempo</span>
+            <strong id="contador-tiempo" class="marcador-valor">00:00</strong>
+          </div>
+          <div class="marcador">
+            <span class="marcador-etiqueta">✅ Parejas</span>
+            <strong id="contador-parejas" class="marcador-valor">0 / 8</strong>
+          </div>
+        </div>
+      </header>
+
+      <div id="tablero" class="tablero" aria-label="Tablero de tarjetas"></div>
+
+      <p id="mensaje" class="mensaje" aria-live="polite">
+        Haz clic en una tarjeta para comenzar.
+      </p>
+
+      <div class="acciones">
+        <button id="btn-reiniciar" class="boton boton-secundario" type="button">
+          ↻ Reiniciar
+        </button>
+        <button id="btn-menu" class="boton boton-terciario" type="button">
+          ⌂ Menú
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- VENTANA DE VICTORIA -->
+  <div id="modal-victoria" class="modal oculto" role="dialog" aria-modal="true" aria-labelledby="titulo-victoria">
+    <div class="modal-contenido">
+      <div class="trofeo" aria-hidden="true">🏆</div>
+      <h2 id="titulo-victoria" class="modal-titulo">¡Victoria!</h2>
+      <p class="modal-texto">Encontraste todas las parejas del tablero.</p>
+      <div id="estrellas" class="estrellas" aria-hidden="true">⭐⭐⭐</div>
+
+      <div class="resultados">
+        <div class="resultado">
+          <span>Movimientos</span>
+          <strong id="resultado-movimientos">0</strong>
+        </div>
+        <div class="resultado">
+          <span>Tiempo</span>
+          <strong id="resultado-tiempo">00:00</strong>
+        </div>
+      </div>
+
+      <div class="acciones">
+        <button id="btn-jugar-otra-vez" class="boton boton-principal" type="button">
+          ↻ Jugar de nuevo
+        </button>
+        <button id="btn-volver-inicio" class="boton boton-terciario" type="button">
+          ⌂ Inicio
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
